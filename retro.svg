@@ -1,0 +1,193 @@
+<svg viewBox="0 0 850 1160" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradientes -->
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0d0221" />
+      <stop offset="60%" stop-color="#26083b" />
+      <stop offset="100%" stop-color="#4f0854" />
+    </linearGradient>
+
+    <linearGradient id="sunGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffe600" />
+      <stop offset="50%" stop-color="#ff0055" />
+      <stop offset="100%" stop-color="#b000ff" />
+    </linearGradient>
+
+    <linearGradient id="headerBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4f0854" />
+      <stop offset="50%" stop-color="#26083b" />
+      <stop offset="100%" stop-color="#0d0221" />
+    </linearGradient>
+
+    <!-- Máscara de corte para o letreiro -->
+    <clipPath id="marqueeClip">
+      <rect x="20" y="0" width="810" height="30" />
+    </clipPath>
+
+    <style>
+      /* CSS Geral */
+      .bg-main { fill: #0d0221; }
+      .border-yellow { stroke: #ffe600; stroke-width: 3; fill: none; }
+      .border-pink { stroke: #ff0055; stroke-width: 1.5; fill: none; }
+      .border-cyan { stroke: #00f0ff; stroke-width: 1.5; fill: none; }
+      
+      .title-glitch { font-family: 'Courier New', monospace; font-weight: 900; font-size: 34px; fill: #ffe600; text-anchor: middle; letter-spacing: 4px; }
+      .marquee-text { font-family: 'Courier New', monospace; font-weight: bold; font-size: 14px; fill: #ffe600; }
+      
+      .sec-header-bg { fill: url(#headerBg); stroke: #ff0055; stroke-width: 1.5; }
+      .sec-header-text { font-family: 'Courier New', monospace; font-weight: bold; font-size: 18px; fill: #ffe600; }
+      
+      .text-body { font-family: 'Courier New', monospace; font-size: 14px; fill: #ffffff; }
+      .text-cyan { fill: #00f0ff; font-weight: bold; }
+      .text-pink { fill: #ff0055; font-weight: bold; }
+      .text-yellow { fill: #ffe600; }
+      .text-dim { fill: #a39bb0; font-size: 12px; }
+
+      .box-bg { fill: #160630; stroke: #00f0ff; stroke-width: 1; }
+      .badge-bg { fill: #1f0b40; stroke: #ff0055; stroke-width: 1.5; }
+      .badge-text { font-family: 'Courier New', monospace; font-weight: bold; font-size: 13px; fill: #ffffff; text-anchor: middle; }
+
+      /* ANIMAÇÕES CSS */
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+      .cursor-blink { animation: blink 1s step-end infinite; fill: #00f0ff; font-weight: 900; }
+
+      /* Animação do Título */
+      @keyframes pulse-title {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.08); }
+      }
+      .title-anim {
+        animation: pulse-title 2s infinite ease-in-out;
+        transform-origin: 425px 100px; /* Centro exato do banner para escalar proporcionalmente */
+      }
+    </style>
+  </defs>
+
+  <!-- FUNDO GERAL -->
+  <rect width="850" height="1160" class="bg-main" />
+
+  <!-- ================= BANNER TOPO ================= -->
+  <g id="banner">
+    <rect width="850" height="150" fill="url(#skyGrad)" />
+    
+    <!-- Sol Retro Animado (Pulso mais forte: raio de 55 a 62) -->
+    <circle cx="425" cy="100" r="55" fill="url(#sunGrad)">
+      <animate attributeName="r" values="55; 62; 55" dur="4s" repeatCount="indefinite" />
+    </circle>
+    
+    <!-- Linhas do sol simulando o fundo -->
+    <rect x="365" y="95" width="120" height="3" fill="#1f0532" />
+    <rect x="365" y="103" width="120" height="4" fill="#240638" />
+    <rect x="365" y="112" width="120" height="5" fill="#2d0741" />
+    <rect x="365" y="122" width="120" height="6" fill="#360849" />
+    <rect x="365" y="133" width="120" height="8" fill="#420850" />
+
+    <line x1="0" y1="150" x2="850" y2="150" stroke="#ff007f" stroke-width="2.5" />
+    
+    <rect y="150" width="850" height="100" fill="#090014" />
+    
+    <!-- Linhas de Perspectiva (Grid) -->
+    <g stroke="#00f0ff" stroke-width="1.2" opacity="0.8">
+      <line x1="425" y1="150" x2="425" y2="250" />
+      <line x1="405" y1="150" x2="335" y2="250" />
+      <line x1="385" y1="150" x2="235" y2="250" />
+      <line x1="365" y1="150" x2="115" y2="250" />
+      <line x1="335" y1="150" x2="-35" y2="250" />
+      <line x1="445" y1="150" x2="515" y2="250" />
+      <line x1="465" y1="150" x2="615" y2="250" />
+      <line x1="485" y1="150" x2="735" y2="250" />
+      <line x1="515" y1="150" x2="885" y2="250" />
+    </g>
+
+    <!-- Linhas Horizontais (Grid) -->
+    <g stroke="#00f0ff" stroke-width="1" opacity="0.7">
+      <line x1="0" y1="156" x2="850" y2="156" />
+      <line x1="0" y1="164" x2="850" y2="164" />
+      <line x1="0" y1="176" x2="850" y2="176" />
+      <line x1="0" y1="192" x2="850" y2="192" />
+      <line x1="0" y1="215" x2="850" y2="215" />
+      <line x1="0" y1="245" x2="850" y2="245" />
+    </g>
+
+    <!-- Título com nova classe title-anim -->
+    <text x="50%" y="110" class="title-glitch title-anim">Bem-vindo(a)!</text>
+
+    <!-- Molduras do Banner -->
+    <rect x="4" y="4" width="842" height="242" class="border-yellow" />
+    <rect x="8" y="8" width="834" height="234" class="border-pink" />
+  </g>
+
+  <!-- MARQUEE ANIMADO -->
+  <g transform="translate(0, 260)">
+    <rect x="20" y="0" width="810" height="30" class="box-bg" />
+    <g clip-path="url(#marqueeClip)">
+      <text y="20" class="marquee-text">
+        *** Computação *** Manutenção de dispositivos eletrônicos *** Programação Web retrô ***
+        <animateTransform attributeName="transform" type="translate" from="810 0" to="-800 0" dur="12s" repeatCount="indefinite" />
+      </text>
+    </g>
+  </g>
+
+  <!-- ================= SEÇÃO 1: INTRODUÇÃO ================= -->
+  <g transform="translate(20, 310)">
+    <rect width="810" height="35" class="sec-header-bg" />
+    <text x="15" y="24" class="sec-header-text">Seção » INTRODUÇÃO</text>
+
+    <rect y="50" width="810" height="165" fill="#05010e" stroke="#ff0055" stroke-width="1.5" />
+    <text x="20" y="85" class="text-body">Olá, eu sou a Mayumi! Uma pessoa curiosa que aprende desmontando coisas.</text>
+    <text x="20" y="110" class="text-body">Sou estudante e pesquisadora amadora da área de tecnologia, com foco em segurança</text>
+    <text x="20" y="135" class="text-body">cibernética, manutenção de hardware, forense digital e análise de sistemas.<tspan class="cursor-blink">_</tspan></text>
+    
+    <text x="20" y="170" class="text-body text-yellow">🎓 Ciência da Computação <tspan class="text-dim">— Univ. Farias Brito (Cursando)</tspan></text>
+    <text x="20" y="195" class="text-body text-yellow">🛡️ Cibersegurança <tspan class="text-dim">— Univ. de Fortaleza (Cursando)</tspan></text>
+  </g>
+
+  <!-- ================= SEÇÃO 2: FOCO DE ESTUDO ================= -->
+  <g transform="translate(20, 540)">
+    <rect width="810" height="35" class="sec-header-bg" />
+    <text x="15" y="24" class="sec-header-text">Seção » FOCO DE ESTUDO</text>
+
+    <rect y="50" width="810" height="130" class="box-bg" />
+    <text x="20" y="80" class="text-body text-pink">[X] Hardware e eletrônica: <tspan class="text-body">Manutenção e análise de hardware.</tspan></text>
+    <text x="20" y="110" class="text-body text-pink">[X] Segurança da Informação: <tspan class="text-body">Análise de vulnerabilidades e cibernética.</tspan></text>
+    <text x="20" y="140" class="text-body text-pink">[X] Forense digital: <tspan class="text-body">Investigação e análise de casos.</tspan></text>
+  </g>
+
+  <!-- ================= SEÇÃO 3: PROJETOS ================= -->
+  <g transform="translate(20, 750)">
+    <rect width="810" height="35" class="sec-header-bg" />
+    <text x="15" y="24" class="sec-header-text">Seção » PROJETOS ENVOLVIDOS</text>
+
+    <rect y="50" width="810" height="110" fill="#120424" stroke="#ffe600" stroke-width="1.5" />
+    <text x="20" y="80" class="text-body text-yellow" font-size="16" font-weight="bold">📱 Blue Day App</text>
+    <text x="20" y="105" class="text-body">Aplicativo focado em gerenciamento de tarefas e controle de compromisso.</text>
+    <text x="20" y="130" class="text-body text-cyan">Technologies: <tspan class="text-body">Apache Cordova, HTML, CSS, JavaScript e Java</tspan></text>
+  </g>
+
+  <!-- ================= SEÇÃO 4: ÍCONES DE FERRAMENTAS ================= -->
+  <g transform="translate(20, 940)">
+    <rect width="810" height="35" class="sec-header-bg" />
+    <text x="15" y="24" class="sec-header-text">Seção » TECNOLOGIAS E FERRAMENTAS</text>
+
+    <g transform="translate(80, 55)">
+      <g transform="translate(0,0)"><rect width="140" height="35" rx="5" class="badge-bg" /><text x="70" y="22" class="badge-text">APACHE CORDOVA</text></g>
+      <g transform="translate(155,0)"><rect width="60" height="35" rx="5" class="badge-bg" /><text x="30" y="22" class="badge-text">HTML</text></g>
+      <g transform="translate(230,0)"><rect width="60" height="35" rx="5" class="badge-bg" /><text x="30" y="22" class="badge-text">CSS</text></g>
+      <g transform="translate(305,0)"><rect width="50" height="35" rx="5" class="badge-bg" /><text x="25" y="22" class="badge-text">C</text></g>
+      <g transform="translate(370,0)"><rect width="80" height="35" rx="5" class="badge-bg" /><text x="40" y="22" class="badge-text">PYTHON</text></g>
+      <g transform="translate(465,0)"><rect width="70" height="35" rx="5" class="badge-bg" /><text x="35" y="22" class="badge-text">JAVA</text></g>
+      <g transform="translate(550,0)"><rect width="100" height="35" rx="5" class="badge-bg" /><text x="50" y="22" class="badge-text">EXIFTOOL</text></g>
+    </g>
+  </g>
+
+  <!-- ================= RODAPÉ ================= -->
+  <g transform="translate(0, 1080)">
+    <rect width="850" height="40" fill="#090014" />
+    <line x1="0" y1="20" x2="850" y2="20" stroke="#00f0ff" stroke-width="1.5" />
+    <rect x="250" y="8" width="350" height="24" fill="#0d0221" stroke="#ff0055" stroke-width="1" />
+    <text x="50%" y="24" class="text-body text-pink" text-anchor="middle" font-size="12">END OF LINE /// GITHUB MD</text>
+  </g>
+</svg>
